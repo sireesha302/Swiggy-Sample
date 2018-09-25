@@ -1,0 +1,93 @@
+<!--<div style="margin-top:60px">   
+  <mat-sidenav-container class="example-container">
+  <mat-sidenav class ="leftside"opened mode="side">
+      <mat-card class="matcard" (click)="ShowCard()">DebitCard</mat-card>
+      <mat-card class="matcard" (click)="ShowCard()">CreditCard</mat-card>
+      <mat-card class="matcard">
+          <div id="paypal-checkout-btn"></div>
+      </mat-card>
+      <mat-card class="matcard" (click)="ShowUPI()">Paytm</mat-card>
+      <mat-card class="matcard"(click)="ShowUPI()" >PhonePay</mat-card>
+  </mat-sidenav>
+ <mat-sidenav class="rightside" opened mode="side" position="end"></mat-sidenav>
+  <div   id="Card" style=" display: none">
+          <mat-card style="width: 820px" >
+              <mat-form-field appearance="outline" style="width: 300px">
+                  <mat-label>CardNumber</mat-label>
+                <input  id="CardNumber" matInput placeholder="CardNumber" >
+              </mat-form-field>
+            </mat-card>
+            <mat-card style="width: 820px">
+                <mat-form-field appearance="outline" style="width: 300px">
+                    <mat-label>CVV</mat-label>
+                  <input  id="CVV"  matInput placeholder="CVV" >
+                </mat-form-field>
+              </mat-card>
+              <mat-card style="width: 820px">
+                  <mat-form-field appearance="outline" style="width: 300px">
+                      <mat-label>ExpiryDate</mat-label>
+                      <input matInput [matDatepicker]="picker" placeholder="ExpiryDate">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </mat-card>
+            <mat-card style="width: 820px">
+                  <button style="align-self: center" mat-raised-button color="primary" >Pay</button>
+              </mat-card>
+          </div>
+<div id="UPI" style="display:none" >
+  <mat-card style="width: 820px">
+       //     <!-- <button>10$</button> -->
+          <!-- </div> -->
+          <!-- <mat-form-field appearance="outline" style="width: 300px">
+              <mat-label>AccountNumber</mat-label>
+            <input  id="Acn"  matInput placeholder="AccountNumber" >
+          </mat-form-field> //
+        </mat-card>
+        <mat-card style="width: 820px">
+              <button style="align-self: center" mat-raised-button color="primary" >Pay</button>
+        </mat-card>
+
+</div>
+</mat-sidenav-container>
+</div>-->
+
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav class ="leftside"opened mode="side">
+    <mat-card class="matcard" (click)="ShowCard()">DebitCard</mat-card>
+    <mat-card class="matcard" (click)="ShowCard()">CreditCard</mat-card>
+    <mat-card class="matcard">
+        <div id="paypal-checkout-btn"></div>
+    </mat-card>
+    <mat-card class="matcard" (click)="ShowUPI()">Paytm</mat-card>
+    <mat-card class="matcard"(click)="ShowUPI()" >PhonePay</mat-card>
+</mat-sidenav>
+
+<mat-sidenav class="rightside" opened mode="side" position="end"></mat-sidenav>
+<div   id="Card" style=" display: block">
+  <mat-card style="width: 820px" >
+      <mat-form-field appearance="outline" style="width: 300px">
+          <mat-label>CardNumber</mat-label>
+        <input  id="CardNumber" matInput placeholder="CardNumber" >
+      </mat-form-field>
+    </mat-card>
+    <mat-card style="width: 820px">
+      <mat-form-field appearance="outline" style="width: 300px">
+          <mat-label>CVV</mat-label>
+        <input  id="CVV"  matInput placeholder="CVV" >
+      </mat-form-field>
+    </mat-card>
+  <!--  <mat-card style="width: 820px">
+      <mat-form-field appearance="outline" style="width: 300px">
+          <mat-label>ExpiryDate</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="ExpiryDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-card>-->
+    <mat-card style="width: 820px">
+          <button style="align-self: center" mat-raised-button color="primary" >Pay</button>
+      </mat-card>
+  </div>
+</mat-sidenav-container>

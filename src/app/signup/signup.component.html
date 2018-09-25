@@ -1,0 +1,76 @@
+<html>
+<body>
+<div>
+  <form [formGroup]="Signupform" (ngsubmit)="onSubmit()" class="example">
+        <mat-form-field>
+          <input formControlName="UserName" matInput placeholder="Enter your Name" required>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field><br>
+      <div *ngIf="Signupform.controls['UserName'].invalid && (Signupform.controls['UserName'].dirty || Signupform.controls['UserName'].touched)" class="alert alert-danger">
+          <div *ngIf="Signupform.controls['UserName'].errors.required" style="color: red">
+          Name is required.
+        </div>
+      </div>
+      
+        <mat-form-field>
+          <input  formControlName="phNum" matInput placeholder="Enter your PhoneNo" required>
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>        
+        <br>
+        <div *ngIf="Signupform.controls['phNum'].touched">
+        <div *ngIf="Signupform.controls['phNum'].invalid" style="color: red">
+          PhoneNumber is not valid
+        </div>
+      </div>
+      
+        <mat-form-field>
+          <input formControlName="pwd" matInput placeholder="Enter your password" required [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field>
+        <br>
+        <div *ngIf="Signupform.controls['pwd'].invalid && (Signupform.controls['pwd'].dirty || Signupform.controls['pwd'].touched)" class="alert alert-danger">
+            <div *ngIf="Signupform.controls['pwd'].errors.required" style="color: red">
+            Password is required.
+          </div>
+        </div>
+          
+
+        <mat-form-field>
+            <input formControlName="cpass" matInput placeholder="Confirm password" [type]="hide ? 'password' : 'text'"required> 
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <div *ngIf="Signupform.controls['cpass'].invalid && (Signupform.controls['cpass'].dirty || Signupform.controls['cpass'].touched)" class="alert alert-danger">
+              <div *ngIf="Signupform.controls['cpass'].errors.required" style="color: red">
+              Password is required.
+            </div>
+          </div>
+      <div id="error" style="display:none;color: red">
+        *Password doesnot match
+      </div><br>
+        <mat-form-field>
+          <input formControlName="emailId" pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,3}$"matInput placeholder="Enter your EmailId" required>
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field><br>
+        <div *ngIf="Signupform.controls['emailId'].touched">
+            <div *ngIf="Signupform.controls['emailId'].errors.required" style="color: red">
+                  EmailId is required
+                </div>              
+              </div>
+             
+        <mat-form-field >        
+            <textarea formControlName="address" matInput placeholder="Enter your Address" required></textarea>
+          </mat-form-field>  
+          <div *ngIf="Signupform.controls['address'].invalid && (Signupform.controls['address'].dirty || Signupform.controls['address'].touched)" class="alert alert-danger">
+              <div *ngIf="Signupform.controls['address'].errors.required" style="color: red">
+              Address is required.
+            </div>
+          </div>   
+        <div class="button-row">
+        <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+        &nbsp;&nbsp;   
+        <a [routerLink]="['/login']">  <button mat-raised-button color="primary"  >Login</button></a>
+      </div>
+    </form>
+    </div>
+  </body>
+  </html>

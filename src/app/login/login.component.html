@@ -1,0 +1,33 @@
+
+
+<div>
+  <form [formGroup]="loginForm" (ngsubmit)="onSubmit()" class="example">
+    <mat-form-field>
+      <input pattern="[0-9]{10}" formControlName="phNum" matInput placeholder="Enter your PhoneNo" required>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>  
+    <br>
+    <mat-form-field>
+      <input required formControlName="pwd" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </mat-form-field>
+    <br>
+    <div class="button-row">
+    <button mat-raised-button color="primary"  (click)="submit()">Submit</button>&nbsp;&nbsp;
+    <a [routerLink]="['/forgetpwd']">  <button mat-raised-button color="primary"  >Forget Password</button></a>
+    
+  </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+ 

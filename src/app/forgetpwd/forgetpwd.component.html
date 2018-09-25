@@ -1,0 +1,44 @@
+
+<div>
+  <form [formGroup]="Forgetform" (ngsubmit)="onSubmit()" class="example">     
+        <mat-form-field>
+          <input pattern="[0-9]{10}" formControlName="phNum" matInput placeholder="Enter your PhoneNo" required>
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+        <br>
+        <div *ngIf="Forgetform.controls['phNum'].touched">
+          <div *ngIf="Forgetform.controls['phNum'].invalid" style="color: red">
+            PhoneNumber is not valid
+          </div>
+        </div>
+        <br>
+        <button mat-raised-button color="primary" style="width:200px" [disabled]="click &gt; 0" (click)="generateOtp()">Generate OTP</button>
+        <button mat-raised-button color="primary" style="width:200px" [disabled]="click &lt;  1" (click)="generateOtp()" >Resend OTP</button>
+        <h2>{{countDown | async }}</h2>
+        <br>
+        <mat-form-field>
+            <input  formControlName="otp" [readonly]="count === 0" matInput placeholder="Enter your OTP" required>
+        </mat-form-field><br>
+        <div style="display: none" id="otpValid" class="ex">
+       <mat-form-field >
+          <input  formControlName="pwd" matInput placeholder="Enter your password"  required [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field >
+            <input formControlName="cpass" matInput placeholder="Confirm password" [type]="hide ? 'password' : 'text'"required> 
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field><br>
+        <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+        
+        </div>
+      <div id="error" style="display:none;color: red">
+        *Password doesnot match
+      </div><br>
+        <div class="button-row" id="otpCheck">
+        <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+        &nbsp;&nbsp;   
+      </div>
+    </form>
+    </div>
+  

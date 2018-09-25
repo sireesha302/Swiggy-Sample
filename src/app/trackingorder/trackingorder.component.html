@@ -1,0 +1,15 @@
+
+<div style="margin-top:100px"><mat-list style="width:500px;margin-left:430px"role="list" *ngFor="let items of orderDetails " >
+    <mat-card>
+      <mat-card-content>
+          Order Id :&nbsp;&nbsp;{{items.OrderId}}<br>
+          DeliveryBoy Name :&nbsp;&nbsp;{{items.DeliveryBoy}} <br>
+          DeliveryBoy Number :&nbsp;&nbsp;{{items.BoyphNum}}<br>
+          Restaurant Name:&nbsp;&nbsp;{{items.RestaurantName}}    <br> 
+         RecipeName:&nbsp;{{items.itemName}}<br>
+         Price:&nbsp;&nbsp;Rs{{items.Price}}  <br>
+         Status:&nbsp;&nbsp;{{items.Status}} &nbsp;&nbsp;&nbsp;
+      </mat-card-content>
+    </mat-card>
+    </mat-list>  
+  </div>

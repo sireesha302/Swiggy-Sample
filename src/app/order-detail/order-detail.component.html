@@ -1,0 +1,64 @@
+<section class="header">
+    <mat-toolbar style="background:blue">
+              <mat-icon (click)='locationBack()'>arrow_back</mat-icon>
+              <button  style="margin-left:100px" mat-raised-button class="btn">My Orders</button>&nbsp;&nbsp;&nbsp;
+              <a [routerLink]="['/trackingOrder']"  >      <button mat-raised-button class="btn" >Tracking Order</button></a>
+              <mat-icon  style="margin-left: 600px">account_box</mat-icon>{{UserName}}
+              <mat-icon [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+              <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="openNav()">Profile</button>
+          <button mat-menu-item (click)='myOrders()'>My Orders</button>
+                  <button mat-menu-item>Log Out</button>
+                </mat-menu>
+                               
+    </mat-toolbar>
+    </section>
+   
+    <div id="mySidenav" class="sidenav">
+      <h4 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Edit Profile</h4>
+      <form [formGroup]="Signupform" (ngsubmit)="onSubmit()" class="example">
+        <mat-form-field>
+          <input formControlName="UserName" matInput placeholder="Change your Name" required>     
+        </mat-form-field>    
+        <button mat-raised-button color="primary" (click)="submit()" >Update</button>
+        <br>
+        <mat-form-field>
+          <input  formControlName="phNum" matInput placeholder="Change your PhoneNo" required>
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field> 
+        <button mat-raised-button color="primary" (click)="submit()">Update</button>     
+        <br>
+      
+        <mat-form-field>
+          <input formControlName="pwd" matInput placeholder="Change your password" required [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field>   
+         <button mat-raised-button color="primary" (click)="submit()">Update</button>
+        <br>
+        
+        <mat-form-field>
+          <input formControlName="emailId" pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,3}$"matInput placeholder="Change your EmailId" required>
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="submit()">Update</button><br>
+    </form>
+    </div>
+    
+
+    
+<div style="margin-top:100px;margin-left:400px" class="main">
+  <mat-card style="width: 500px"><h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center">My Orders</h3></mat-card>
+<mat-card style="width: 500px">
+  <mat-list  *ngFor="let items of orderDetails " > 
+    Order Id :&nbsp;&nbsp;{{items.OrderId}}<br>
+    Restaurant Name:&nbsp;&nbsp;{{items.RestaurantName}}    <br> 
+   RecipeName:&nbsp;{{items.itemName}}<br>
+   Price:&nbsp;&nbsp;Rs{{items.Price}}  <br>
+   DeliveryCharge:&nbsp;&nbsp;Rs.{{items.DeliveryCharge}}<br>
+   Number Of Plates:&nbsp;&nbsp; {{items.Quantity}}<br>
+   Status:&nbsp;&nbsp;{{items.Status}} &nbsp;&nbsp;&nbsp;
+   <button id="cancel"mat-raised-button color="primary" style="width:30px" [disabled]='items.Status === "Cancelled" || items.Status==="Delivered" || items.Status==="pending"' (click)='myCancel(items.OrderId)'>Cancel</button><br>
+      ...............................................
+ </mat-list>
+ </mat-card>
+</div>

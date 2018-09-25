@@ -1,0 +1,83 @@
+<section class="header">
+  <mat-toolbar style="background:blue">
+          <mat-icon (click)='locationBack()'>arrow_back</mat-icon>
+          <a [routerLink]="['/myorders']">    <button  style="margin-left:100px" mat-raised-button class="btn">My Orders</button></a>&nbsp;&nbsp;&nbsp;
+          <a [routerLink]="['/trackingOrder']"  >   <button mat-raised-button class="btn" >Tracking Order</button></a>
+            <mat-icon matBadge={{checkList.length}} matBadgeColor="warn"  style="margin-left: 600px">add_shopping_cart</mat-icon>
+            <mat-icon  style="margin-left: 20px">account_box</mat-icon>{{UserName}}
+            <mat-icon [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item (click)='myOrders()'>My Orders</button>
+                <button mat-menu-item>Log Out</button>
+              </mat-menu> 
+                  
+  </mat-toolbar>
+  </section>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav class="startNav" opened mode="side">
+  </mat-sidenav>
+  <div id="endNav">
+  <mat-sidenav class="endNav" opened mode="side" style="margin-left: 1000px" >
+    <h2 style="margin-left: 100px">Check List</h2>
+    <mat-card>
+     <mat-list  *ngFor="let items of checkList">
+    <table>
+      <tr>
+        <td>{{items.RecipeName}}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{items.ItemPrice}}</td>
+      </tr><br><br>
+    </table>
+  </mat-list>
+  <div *ngFor="let items of addTotal">
+    <table>
+      <tr>
+        <td>
+            Total Price
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{items.TotalPrice}}</td>
+
+      </tr>
+      <tr>
+        <td>Delivery Charge </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{items.DeliveryCharge}}</td>
+      </tr>
+      <strong>.............................................................</strong>
+      <tr>
+        <td><b>To Pay</b></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{items.TotalAmount}}</td>
+      </tr>
+    </table>
+</div>
+  </mat-card>
+    <div id="btnCart">
+        <button mat-raised-button color="primary" style="width: 350px" (click)='testFun()' >Buy</button>
+      </div> 
+    </mat-sidenav></div>
+    <div>
+      <div *ngIf="UserName==='undefined'" >
+    <mat-card >
+      <h3>You have to Login for Payment</h3>
+      <a [routerLink]="['/loginPay']"> <button mat-raised-button color="primary" >Login</button></a>  &nbsp;&nbsp;&nbsp;
+    <a [routerLink]="['/signupPay']"><button mat-raised-button color="primary">SignUp</button></a>  
+    </mat-card>
+  </div>
+  
+    <br><br>
+    <mat-card>
+      <h3>Delivery Address</h3>    
+        <mat-radio-button (click)="addressFun('CurrentAdd')">Current Address</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-radio-button (click)="addressFun('NewAdd')">New Address</mat-radio-button><br><br>        
+          <textarea id="address" rows="10" cols="20"  >   {{Oldaddress}}
+            </textarea><br>
+            <button mat-raised-button color="primary" (click)="SaveAddress()">Save Changes</button>
+       
+      </mat-card><br><br>
+      <br>
+      <mat-card>
+        <h3>Payment    <mat-icon (click)="Payment()">keyboard_arrow_right</mat-icon></h3>
+     
+      </mat-card>
+    </div>
+    </mat-sidenav-container>

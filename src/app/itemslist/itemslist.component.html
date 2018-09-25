@@ -1,0 +1,122 @@
+<section class="header">
+  <mat-toolbar style="background:blue">
+        <mat-icon (click)='locationBack()'>arrow_back</mat-icon>
+        <a [routerLink]="['/myorders']">     <button  style="margin-left:100px" mat-raised-button class="btn">My Orders</button></a>&nbsp;&nbsp;&nbsp;
+       <a [routerLink]="['/trackingOrder']"  > <button mat-raised-button class="btn" >Tracking Order</button></a>  
+     
+      &nbsp;&nbsp;&nbsp; <mat-form-field>
+         <mat-label>Search</mat-label>
+        <input type="text" aria-label="Search Food"  matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filterFood | async"  [value]="option.ItemName">
+            {{option.ItemName}}
+          </mat-option>
+        </mat-autocomplete>
+        </mat-form-field>
+       <button mat-raised color="primary" (click)="getAllRes()">Go</button>  
+       &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+        <button style="margin-left: 300px" mat-raised-button class="btn"[matMenuTriggerFor]="menus" >Notifications<mat-icon>notifications</mat-icon></button>
+       <mat-menu #menus="matMenu">
+      <button mat-menu-item style="width:300px" (click)="offers()">Get 20% offer for Hotel Samskruti</button>
+        
+         </mat-menu> 
+        
+       &nbsp;&nbsp;<mat-icon>account_box</mat-icon>
+            <b >{{UserName}}</b>
+            <mat-icon [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item (click)='myOrders()'>My Orders</button>
+                <button mat-menu-item (click)='logOut()'>Log Out</button>
+              </mat-menu>              
+  </mat-toolbar>
+ 
+  </section>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav class="ex" opened mode="side">
+    <!--  <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Select Food Item" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filterFood | async"  [value]="option.ItemName">
+              {{option.ItemName}}
+            </mat-option>
+          </mat-autocomplete>
+          </mat-form-field>
+         <button mat-raised color="primary" (click)="getAllRes()">Go</button>-->
+    <mat-list class ="list" >
+      <br>
+      <br><br>
+      <mat-list-item    (click)='free("Free")'> Free Delivery </mat-list-item>
+      <mat-list-item  (click)='free("fastDelivery")'>Fast Delivery</mat-list-item>
+      <mat-list-item  (click)='free("showRes")'>Show Restaurants</mat-list-item>
+     </mat-list>
+  </mat-sidenav>
+  <mat-sidenav class="ex" opened mode="side" position="end"></mat-sidenav>
+  <div id="food"  style="display: block" class="food">
+   <mat-list role="list" *ngFor="let items of foodie">
+      <mat-card>
+        <mat-card-content>
+          <table>
+            <tr>
+                <td> <img mat-card-sm-image src="../../assets/images/{{items.ImageUrl}}" alt="ResImage"></td>
+           <td> <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">&nbsp;&nbsp;&nbsp; {{items.RestaurantName }}</h3>  
+          </tr>
+          </table>        
+          <p><mat-icon  routerLink="/res/{{items.AreaName}}/{{items.RestaurantName}}">keyboard_arrow_right</mat-icon></p>
+        </mat-card-content>
+      </mat-card>
+      </mat-list>  
+</div>
+<div id="foodBasedRes" style="display: none" >
+    <mat-grid-list cols="2" rowHeight="350px">
+        <mat-grid-tile  *ngFor="let items of detailFoodie">
+            <div>
+            <img mat-card-sm-image class="image" src="../../assets/images/{{items.ImageUrl}}" alt="item"><br>         
+            &nbsp;&nbsp; &nbsp;&nbsp; <h4 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">  {{items.RestaurantName}}</h4>
+            <h4 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">{{items.AreaName}}</h4>
+            {{items.DeliveryTime}}Mins&nbsp;.&nbsp;&nbsp;Rs:{{items.Price}} &nbsp;{{items.Quantity}}  <br>
+           <br>
+            <div *ngIf='items.DeliveryType=="Charge"'>
+              Delivery Charge : &nbsp;Rs:{{items.DeliveryCharge}}&nbsp;&nbsp;
+             <mat-icon routerLink="/res/{{items.AreaName}}/{{items.RestaurantName}}">arrow_forward</mat-icon>
+               
+              </div>
+               <div *ngIf='items.DeliveryCharge==0'>
+              {{items.DeliveryType}}&nbsp;Delivery&nbsp;&nbsp;
+              <mat-icon routerLink="/res/{{items.AreaName}}/{{items.RestaurantName}}">arrow_forward</mat-icon>
+                
+                </div>
+          </div>
+        </mat-grid-tile>   
+      </mat-grid-list>
+
+</div>
+     <div id="foodies" style="display: none" class="food">
+      <mat-list role="list" *ngFor="let items of tempfoodie">
+        <mat-card>
+          <mat-card-content>
+            <table>
+              <tr>
+                  <td> <img mat-card-sm-image src="../../assets/images/{{items.ImageUrl}}" alt="ResImage"></td>
+             <td> <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> &nbsp;&nbsp;&nbsp;{{items.RestaurantName }}</h3>  
+            </tr>
+            </table>        
+            <p><mat-icon  routerLink="/res/{{items.AreaName}}/{{items.RestaurantName}}">keyboard_arrow_right</mat-icon></p>
+          </mat-card-content>
+        </mat-card>
+        </mat-list>  
+     </div>
+</mat-sidenav-container>
+<section class="footer">
+    <mat-toolbar style="background-color:mediumblue">
+            <div>
+              <p style="margin-left: 400px" >
+                Copyrights2018 ,Swiggy All Rights Reserved
+              </p>
+            </div>
+     </mat-toolbar>
+</section>
+
+
+
+

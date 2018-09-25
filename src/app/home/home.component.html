@@ -1,0 +1,25 @@
+
+<mat-sidenav-container class="container">
+  <mat-sidenav opened mode="side" class="img">    
+          <img src="https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_inbody_900x506%2Fpublic%2F1502824044%2Froyal-farms-best-gas-station-food-FT-SS0817.jpg%3Fitok%3Dig79fdSU&w=700&q=85">
+      -
+    </mat-sidenav>
+<mat-sidenav-content>
+  <div style="margin-left: 35px">
+      <select (change)="selectChangeCity($event)" >
+          <option value="null">Select City</option>
+            <option [value]="option.cityName" *ngFor="let option of cities">
+              {{option.cityName}}
+            </option>
+          </select>&nbsp;&nbsp;
+          <select (change)="selectChangeArea($event)" >
+              <option value="null">Select Area</option>
+                <option [value]="option.AreaName" *ngFor="let option of cityareanames">
+                  {{option.AreaName}}
+                </option>
+          </select> &nbsp;&nbsp;
+          <button mat-raised-button class="btn" (click)="getRes()" >Go</button>&nbsp;&nbsp;
+         
+    </div>
+  
+</mat-sidenav-content></mat-sidenav-container>
