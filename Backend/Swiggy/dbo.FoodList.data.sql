@@ -1,0 +1,8 @@
+﻿INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (1, N'Qube Cafe', N'Chicken Biryani', N'NonVeg', N'Charge', 180, N'30')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (2, N'Qube Cafe', N'Chicken Rolls', N'NonVeg', N'Charge', 90, N'30')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (3, N'Dominos', N'Pizza', N'Veg', N'Free', 100, N'0')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (4, N'Dominos', N'Pizza', N'NonVeg', N'Charge', 180, N'30')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (5, N'Qube Cafe', N'Prawns Biryani', N'NonVeg', N'Free', 180, N'0')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (6, N'Hyderabad Hosts', N'Chicken 65', N'NonVeg', N'Charge', 90, N'40')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (7, N'Hyderabad Hosts', N'Chicken Manchuria', N'NonVeg', N'Free', 90, N'0')
+INSERT INTO [dbo].[FoodList] ([Id], [Restaurant Name], [Item Type], [Category], [Delivery type], [Price], [Delivery Charge]) VALUES (8, N'Tara', N'Manchuria', N'Veg', N'Charge', 150, N'40')

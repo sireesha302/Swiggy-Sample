@@ -1,0 +1,29 @@
+
+  .header {
+    position: fixed;
+    left: 0;
+    height: 12%;
+    top:0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+.example-container {
+    position: absolute;
+    top: 50px;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+  }
+  .startNav{
+      width:10px;
+  }
+  .endNav{
+      width:350px;
+        }
+        .btn{
+            height: 30px;
+            width:120px;
+            background-color: blue;
+        }
