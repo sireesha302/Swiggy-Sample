@@ -39,7 +39,7 @@ orderDetails:orderDet[]=[];
   }
   getOrderDetails(phNum){
     console.log("////" +phNum)
-    return this.http.get<any>('http://localhost:61765/api/Swiggy/Orders' + "/"+ phNum  )
+    return this.http.get<any>('http://localhost:61764/api/Swiggy/Orders' + "/"+ phNum  )
   }
   submit(){
     console.log(this.orderDetails)

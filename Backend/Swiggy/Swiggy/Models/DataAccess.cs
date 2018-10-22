@@ -77,100 +77,7 @@ namespace Swiggy.Models
         }
 
 
-        /*  public IEnumerable<Locations> GetSwiggyData()
-          {
-
-              try
-              {
-
-                  connection.Open();
-                  SqlCommand cmd = new SqlCommand("select * from Locations", connection);
-                  SqlDataReader rdr = cmd.ExecuteReader();
-
-                  List<Locations> list = new List<Locations>();
-                  while (rdr.Read())
-                  {
-                      Locations item = new Locations();
-                      item.Id = Convert.ToInt32(rdr["Id"]);
-                      item.Area = rdr["Area"].ToString();
-                      item.City = rdr["City"].ToString();
-                      list.Add(item);
-                  }
-
-                  connection.Close();
-
-                  return list;
-              }
-              catch
-              {
-                  throw;
-              }
-
-          }
-
-
-
-
-
-          public IEnumerable<Restaurants> GetItems()
-          {
-              try
-              {
-                  connection.Open();
-
-                  SqlCommand cmnd = new SqlCommand("select * from Foodies",connection);
-                  SqlDataReader reader = cmnd.ExecuteReader();
-                  List<Restaurants> list = new List<Restaurants>();
-
-                  while (reader.Read())
-                  {
-                      Restaurants rs = new Restaurants();
-                      rs.ResName = reader["RestaurantName"].ToString();
-                      rs.item = reader["ItemType"].ToString();
-                      rs.price = Convert.ToInt32(reader["Price"]);
-                      rs.Deliverytype= reader["Deliverytype"].ToString();
-                      rs.Deliverycharge=Convert.ToInt32(reader["DeliveryCharge"]);
-                          rs.category = reader["Category"].ToString();
-                      rs.AreaName = reader["AreaName"].ToString();
-                      list.Insert(list.Count, rs);
-                  }
-
-                  connection.Close();
-                  return list;
-              }
-              catch
-              {
-                  throw;
-              }
-          }
-
-
-
-          public IEnumerable<RestaurantsData> GetRestaurantsDatas()
-          {
-              try
-              {
-                  connection.Open();
-
-                  SqlCommand cmnd = new SqlCommand("select * from RestaurantData", connection);
-                  SqlDataReader reader = cmnd.ExecuteReader();
-                  List<RestaurantsData> list = new List<RestaurantsData>();
-
-                  while (reader.Read())
-                  {
-                      RestaurantsData rs = new RestaurantsData();
-                      rs.ResName = reader["RestaurantName"].ToString();
-                      rs.AreaName = reader["Area"].ToString();
-                      list.Insert(list.Count, rs);
-                  }
-                  connection.Close();
-                  return list;
-              }
-              catch
-              {
-                  throw;
-              }
-          }*/
+       
         public IEnumerable<Example> GetAreacitynames()
         {
             try
@@ -438,7 +345,8 @@ namespace Swiggy.Models
                     connection.Close();
                 }
             }
-            catch { throw; }
+            catch {
+               return "failure"; }
             return msg;
         }
 

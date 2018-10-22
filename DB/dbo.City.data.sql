@@ -1,0 +1,5 @@
+﻿INSERT INTO [dbo].[City] ([Id], [CityName]) VALUES (1, N'Hyderabad')
+INSERT INTO [dbo].[City] ([Id], [CityName]) VALUES (2, N'Vijayawada')
+INSERT INTO [dbo].[City] ([Id], [CityName]) VALUES (3, N'Vizag')
+INSERT INTO [dbo].[City] ([Id], [CityName]) VALUES (4, N'Bhimavaram')
+INSERT INTO [dbo].[City] ([Id], [CityName]) VALUES (5, N'Banglore')

@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit{
   }
   
   getValidUser(phNum,pwd){
-    this.msg='http://localhost:61765/api/Swiggy' + "/"+ phNum  + "/"+pwd;
+    this.msg='http://localhost:61764/api/Swiggy' + "/"+ phNum  + "/"+pwd;
     console.log(this.msg)
-    return this.http.get<any>('http://localhost:61765/api/Swiggy' + "/"+ phNum  + "/"+pwd)
+    return this.http.get<any>('http://localhost:61764/api/Swiggy' + "/"+ phNum  + "/"+pwd)
   }
 submit(){
 

@@ -33,7 +33,7 @@ count:number;
   
   updateEmployee(user):any{
     document.getElementById('error').style.display='none';
-      return this.http.post('http://localhost:61765/api/Swiggy/update',user); 
+      return this.http.post('http://localhost:61764/api/Swiggy/update',user); 
       }
     
   submitForm(){
@@ -72,7 +72,7 @@ count:number;
      
       this.phNum=this.Forgetform.controls.phNum.value;
       this.click=this.click+1;
-      return this.http.get<any>('http://localhost:61765/api/Swiggy/Forget' + "/"+ this.phNum ).subscribe(data=>{
+      return this.http.get<any>('http://localhost:61764/api/Swiggy/Forget' + "/"+ this.phNum ).subscribe(data=>{
         if(data==="success"){
         this.count = 60;
           this.countDown = timer(0,1000).pipe(           
@@ -87,7 +87,7 @@ count:number;
   submit(){
     this.phNum=this.Forgetform.controls.phNum.value;
     this.otp=this.Forgetform.controls.otp.value;
-    return this.http.get<any>('http://localhost:61765/api/Swiggy/Forget' +"/"+this.phNum + "/"+this.otp ).subscribe
+    return this.http.get<any>('http://localhost:61764/api/Swiggy/Forget' +"/"+this.phNum + "/"+this.otp ).subscribe
     (data=>{if(data ==="success"){
       document.getElementById('otpValid').style.display='block'
       document.getElementById('otpCheck').style.display='none'

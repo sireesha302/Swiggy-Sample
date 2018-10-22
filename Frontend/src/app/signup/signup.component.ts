@@ -67,6 +67,6 @@ export class SignupComponent implements OnInit {
     document.getElementById('error').style.display='none';
     console.log(employee);
     
-    return this.http.post('http://localhost:61765/api/Swiggy/post',employee) ; 
+    return this.http.post('http://localhost:61764/api/Swiggy/post',employee) ; 
   }
 }

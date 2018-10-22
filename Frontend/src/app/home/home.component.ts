@@ -51,9 +51,9 @@ export class HomeComponent implements OnInit {
   private selectedArea:string;
 
  // private location='http://localhost:61765/api/Restaurant';
-  private city="http://localhost:61765/api/City";
-  private areaLink="http://localhost:61765/api/Area";
-  private cityAreaLink ="http://localhost:61765/api/AreaCity";
+  private city="http://localhost:61764/api/City";
+  private areaLink="http://localhost:61764/api/Area";
+  private cityAreaLink ="http://localhost:61764/api/AreaCity";
   constructor(private http: HttpClient,private router:Router) { 
   }
   

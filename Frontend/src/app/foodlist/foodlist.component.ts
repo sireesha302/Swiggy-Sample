@@ -14,8 +14,7 @@ import {LocationStrategy,PathLocationStrategy,Location} from '@angular/common'
 })
 export class FoodlistComponent implements OnInit{
 
- // private items='http://localhost:61765/Api/Restaurent';
- private itemsList='http://localhost:61765/api/FoodList';
+ private itemsList='http://localhost:61764/api/FoodList';
   private foodie :fooditems[];
   private tempfoodie=this.foodie;
  
@@ -44,6 +43,7 @@ export class FoodlistComponent implements OnInit{
     
     const resName = this.route.snapshot.paramMap.get('resName');
     this.UserName=sessionStorage.getItem("Name");
+    console.log("//////////////"+this.UserName)
   
     if(this.UserName==="undefined"){
       this.UserName="";
@@ -65,9 +65,7 @@ export class FoodlistComponent implements OnInit{
      document.getElementById('food').style.display='none'
       document.getElementById('foodies').style.display='block'
        this.tempfoodie= this.foodie.filter(options=>options.ItemType==event);
-      
-   //    this.offers=this.foodie.filter(options=>options.ItemType==event)
-     //  console.log(this.offers)
+    
   
     }
     if(event == "Snacks"){

@@ -43,7 +43,7 @@ export class OrderDetailComponent implements OnInit {
   }   
 
   getOrderDetails(phNum){
-    return this.http.get<any>('http://localhost:61765/api/Swiggy/Orders' + "/"+ phNum  )
+    return this.http.get<any>('http://localhost:61764/api/Swiggy/Orders' + "/"+ phNum  )
   }
  
   locationBack(){
@@ -54,7 +54,7 @@ export class OrderDetailComponent implements OnInit {
     this._fromDate = new DatePipe('en-IN').transform(Date.now(),'M/dd/yyyy'+'hh:mm:ss');
     this.phNum=sessionStorage.getItem("PhoneNumber")
     var data={phNum:this.phNum,OrderId:orderId,Status:"CancelledPending",CancelledTime:this._fromDate}
-    this.http.post('http://localhost:61765/api/Swiggy/OrderDet/Cancelled',data).subscribe(data=>{
+    this.http.post('http://localhost:61764/api/Swiggy/OrderDet/Cancelled',data).subscribe(data=>{
       if(data==="success"){
       //  window.location.reload();
         (<HTMLInputElement> document.getElementById("cancel")).disabled = true;

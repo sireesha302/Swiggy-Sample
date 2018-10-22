@@ -40,8 +40,9 @@ _fromDate: any = new DatePipe('en-IN').transform(Date.now(),'M/dd/yyyy'+'hh:mm:s
 
   ngOnInit() {
     this.UserName=sessionStorage.getItem("Name");
-    console.log("......"+this.UserName)
+    
     this.phoneNum=sessionStorage.getItem("PhoneNumber")
+    console.log("....phone.."+this.phoneNum)
     if(this.UserName==="undefined"){
       this.UserName="";
      
@@ -76,9 +77,6 @@ SaveAddress(){
    this.updateEmployeeAdd(this.newaddress,this.phoneNum).subscribe(data=>{})
 }
 locationBack(){
- // console.log(JSON.parse(sessionStorage.getItem("items")))
- //console.log(this.test.cartItems)
-
   this.location.back();
 }
 testFun(){
@@ -96,8 +94,8 @@ for(var i=0;i< this.checkList.length;i++){
   )
 
  console.log("................")
-  this.phoneNum=sessionStorage.getItem("PhoneNumber");
-  if(this.phoneNum==="undefined"){
+
+  if(sessionStorage.getItem("Name")==="0" || this.UserName ===""){
     alert("You have to Login")
     this.router.navigateByUrl('/login')
   }
@@ -107,12 +105,14 @@ for(var i=0;i< this.checkList.length;i++){
  var d=JSON.stringify(data3)
  console.log(d);
  console.log(data3);
- this.http.post('http://localhost:61765/api/Swiggy/OrderDet',data).subscribe(data=>{
+ this.http.post('http://localhost:61764/api/Swiggy/OrderDet',data).subscribe(data=>{
     if(data==="success" || this.count===1){
       this.count++;
       alert("Successfuly Payed")
-    }else{
-      alert("Invalid Details")
+    }
+    if(data==="failure"){
+      alert("You have to login")
+      this.router.navigateByUrl('/login')
     }
   });
 }
@@ -124,5 +124,13 @@ myOrders(){
 }
 Payment(){
   this.router.navigateByUrl('/payment')
+}
+logOut(){
+  
+  sessionStorage.removeItem("Name")
+        sessionStorage.removeItem("PhoneNumber")
+        sessionStorage.removeItem("Address")
+  this.router.navigateByUrl('/home')
+
 }
 }

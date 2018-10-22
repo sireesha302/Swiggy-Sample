@@ -31,8 +31,8 @@ export class ItemslistComponent implements OnInit {
   myControl=new FormControl();
 //  private items='http://localhost:61765/api/Restaurent/res';
  // private detailList='http://localhost:61765/api/Restaurent';
- private detailList='http://localhost:61765/api/FoodList';
-  private itemsList='http://localhost:61765/api/RestaurantsList';
+ private detailList='http://localhost:61764/api/FoodList';
+  private itemsList='http://localhost:61764/api/RestaurantsList';
   private foodie :areaRestaurants[];
   private detailFoodie:fooditems[];
   private tempfoodie;
